@@ -1,0 +1,29 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Add New Event</title>
+        <style>
+            .addnew input {
+                width: 100%;
+                border: solid;
+                border-color:#FFB533;
+                background-color: white;
+                font-weight: bold;
+                color: #FF5733;
+                text-align: center;
+            }
+            .addnew input:hover {
+                background-color: #FFB533;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="addnew">
+            <form action="event" method="post">
+                <input type="submit" value="Add New Event" />
+            </form>
+        </div>
+    </body>
+</html>

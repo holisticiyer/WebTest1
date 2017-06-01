@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="Model.Event" table="event">
+    <id name="eventId" column="eventId">
+        <generator class="increment"></generator>
+    </id>
+    <property name="eventName" column="eventName" />
+    <property name="eventType" column="eventType" />
+    <property name="eventDesc" column="eventDesc"/>
+</class>
+</hibernate-mapping>
