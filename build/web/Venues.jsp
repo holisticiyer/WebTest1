@@ -4,14 +4,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>My Events</title>
+        <title>My Events</title>        
     </head>
     <body>
-        <div><jsp:include page="Header.jsp" /></div>
-        <div><jsp:include page="Menu.jsp" /></div>
-        <div><jsp:include page="AddNewVenueButton.html" /></div>
-        <div>
-            <table>
+       
+        <div><jsp:include page="Menu.jsp" /></div>        
+        <div class="container div-top">
+            <table class="table table-striped">
                 <thead>
                     <tr>
                         <th>Venue Name</th>
@@ -27,6 +26,11 @@
                     </c:forEach>
                 </tbody>
             </table>
+        </div>
+        <div class="container">
+            <form action="event" method="post">
+                <input name="click" type="submit" class="btn btn-primary" value="Add New Venue" />
+            </form>
         </div>
     </body>
 </html>

@@ -6,7 +6,7 @@
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/db1</property>
     <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password">pa55</property>
+    <property name="hibernate.connection.password">1490</property>
     <property name="hbm2ddl.auto">update</property>
     <mapping resource="Hibernate/User.hbm.xml"/>
     <mapping resource="Hibernate/Event.hbm.xml"/>

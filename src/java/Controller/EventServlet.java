@@ -106,4 +106,18 @@ public class EventServlet extends HttpServlet {
             rd.include(request, response);
         } catch(Exception ex) {}
     }
+    @Override
+    public void doGet(HttpServletRequest request, HttpServletResponse response){
+        try{
+           PrintWriter out = response.getWriter();
+           String selecteddate = request.getParameter("selectedDate");
+           Service.BookingService bookingObj = new Service.BookingService();           
+           ArrayList<String> availableVenues = bookingObj.getVenues(selecteddate);
+           System.out.println(" availableVenues : "+availableVenues);
+           response.setContentType("text/html;charset=UTF-8");
+           response.getWriter().write(availableVenues+"");
+        }catch(Exception e){}
+    
+     
+    }
 }
