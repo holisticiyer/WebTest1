@@ -1,0 +1,30 @@
+.emButton input {
+    width: 100%;
+    border: none;
+    background-color: #FF5733;
+    color: white;
+    text-align: center;
+}
+.emButton input:hover {
+    background-color: #FFB533;
+}
+.emAdd input {
+    width: 100%;
+    border: solid;
+    border-color:#FFB533;
+    background-color: white;
+    font-weight: bold;
+    color: #FF5733;
+    text-align: center;
+}
+.emAdd input:hover {
+    background-color: #FFB533;
+}
+.menu table {
+    width: 100%;
+    border: none;
+}
+.menu td {
+    width: 20%;
+    border: none;
+}

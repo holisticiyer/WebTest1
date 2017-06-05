@@ -1,11 +1,8 @@
 package Model;
-import java.util.ArrayList;
 public class Event {
     private int eventId;
-    private String eventName, eventType, eventDesc;
+    private String eventName, eventType, eventDesc, eventDate, venueName;
     private boolean isPublic;
-    private ArrayList<Participant> participantList;
-    private ArrayList<Venue> venueList;
     public int geteventId() {
         return eventId;
     }
@@ -30,17 +27,23 @@ public class Event {
     public void seteventDesc(String eventDesc) {
         this.eventDesc = eventDesc;
     }
+    public String geteventDate() {
+        return eventDate;
+    }
+    public void seteventDate(String eventDate) {
+        this.eventDate = eventDate;
+    }
+    public String getvenueName() {
+        return venueName;
+    }
+    public void setvenueName(String venueName) {
+        this.venueName = venueName;
+    }
     public boolean getisPublic() {
         return isPublic;
     }
     public void setisPublic(boolean isPublic) {
         this.isPublic = isPublic;
-    }
-    public ArrayList<Participant> getparticipantList() {
-        return participantList;
-    }
-    public ArrayList<Venue> getvenueList() {
-        return venueList;
     }
     @Override
     public boolean equals(Object o) {

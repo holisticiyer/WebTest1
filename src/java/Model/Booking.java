@@ -3,7 +3,6 @@ import java.util.Objects;
 public class Booking {
     private String bookingId;
     private String venueName;
-    private int eventId;
     private String bookingDate;
     public String getbookingId() {
         return bookingId;
@@ -16,12 +15,6 @@ public class Booking {
     }
     public void setvenueName(String venueName) {
         this.venueName = venueName;
-    }
-    public int geteventId() {
-        return eventId;
-    }
-    public void seteventId(int eventId) {
-        this.eventId = eventId;
     }
     public String getbookingDate() {
         return bookingDate;

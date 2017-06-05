@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>EventMania</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+        <script>
+            var app = angular.module("eventManager",['ngRoute']);
+            app.config(function($routeProvider,$locationProvider) {
+                $locationProvider.hashPrefix = '';
+                $routeProvider
+                        .when("/loginPage", {templateUrl: 'Login.jsp'})
+                        .when("/registerPage", {templateUrl: 'Register.html'})
+                        .otherwise({templateUrl: 'Login.jsp'});
+            });
+        </script>
+    </head>
+    <body>
+        <div ng-app="eventManager">
+            <div>
+                <a href="#!loginPage">Login</a>
+                <a href="#!registerPage">Register</a>
+            </div>
+            <div ng-view></div>
+        </div>
+    </body>
+</html>

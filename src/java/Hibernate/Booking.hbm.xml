@@ -4,7 +4,6 @@
   <class name="Model.Booking" table="booking">
       <id name="bookingId" column="bookingId"></id>
       <property name="venueName" column="venueName" />
-      <property name="eventId" column="eventId" />
       <property name="bookingDate" column="bookingDate" />
   </class>
 </hibernate-mapping>

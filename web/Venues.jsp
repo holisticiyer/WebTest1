@@ -1,15 +1,32 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Venues</title>
+        <title>My Events</title>
     </head>
     <body>
         <div><jsp:include page="Header.jsp" /></div>
         <div><jsp:include page="Menu.jsp" /></div>
         <div><jsp:include page="AddNewVenueButton.html" /></div>
-        <%Model.User u = (Model.User) session.getAttribute("thisUser");%>
-        <div>Venues</div>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Venue Name</th>
+                        <th>Venue Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:forEach items="${listOfVenues}" var="thisVenue">
+                        <tr>
+                            <td><c:out value="${thisVenue.venueName}" /></td>
+                            <td><c:out value="${thisVenue.venueAddr}" /></td>
+                        </tr>
+                    </c:forEach>
+                </tbody>
+            </table>
+        </div>
     </body>
 </html>

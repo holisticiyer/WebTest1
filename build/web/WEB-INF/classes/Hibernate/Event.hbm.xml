@@ -8,5 +8,8 @@
     <property name="eventName" column="eventName" />
     <property name="eventType" column="eventType" />
     <property name="eventDesc" column="eventDesc"/>
+    <property name="eventDate" column="eventDate" />
+    <property name="venueName" column="venueName" />
+    <property name="isPublic" column="isPublic" />
 </class>
 </hibernate-mapping>

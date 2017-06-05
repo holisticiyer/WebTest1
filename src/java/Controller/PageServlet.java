@@ -8,20 +8,24 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.Session;
 import javax.servlet.RequestDispatcher;
 import java.io.PrintWriter;
-import java.util.ArrayList;
+import java.util.*;
 public class PageServlet extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) {
         response.setContentType("text/html");
         try {
             String click = request.getParameter("click");
+            if(click == null) {
+                click = (String) request.getAttribute("click");
+                request.removeAttribute("click");
+            }
             HttpSession hs = request.getSession(false);
+            Model.User u = (Model.User) hs.getAttribute("thisUser");
             RequestDispatcher rd;
             ArrayList<Model.User> ul;
             ArrayList<Model.Event> el;
             ArrayList<Model.Participant> pl;
             ArrayList<Model.Venue> vl;
-            ArrayList<Model.Booking> bl;
             SessionFactory factory = (new Configuration()).configure("Hibernate/hibernate.cfg.xml").buildSessionFactory();
             Session session = factory.openSession();
             switch(click) {
@@ -31,8 +35,7 @@ public class PageServlet extends HttpServlet {
                                     request.setAttribute("allEvents", el);
                                     rd = request.getRequestDispatcher("Home.jsp");
                                     break;
-                case "My Events":   Model.User u = (Model.User) hs.getAttribute("thisUser");
-                                    pl = new ArrayList<>();
+                case "My Events":   pl = new ArrayList<>();
                                     for(Object o:session.createQuery("from Participant as p where p.userEmail='" + u.getuserEmail() + "'").list())
                                         pl.add((Model.Participant) o);
                                     el = new ArrayList<>();
@@ -50,7 +53,8 @@ public class PageServlet extends HttpServlet {
                 case "Account":     ul = new ArrayList<>();
                                     for(Object o:session.createQuery("from User as u").list())
                                         ul.add((Model.User) o);
-                                    request.setAttribute("listOfUsers", ul);
+                                    if(u.getisAdmin())
+                                        request.setAttribute("listOfUsers", ul);
                                     rd = request.getRequestDispatcher("Account.jsp");
                                     break;
                 default:            if(hs.getAttribute("doRemember").equals("yes")) {
@@ -63,6 +67,8 @@ public class PageServlet extends HttpServlet {
                                     out.print("<font color=\"red\">Logout successful.</font>");
                                     rd = request.getRequestDispatcher("Login.jsp");
             }
+            session.close();
+            factory.close();
             rd.include(request, response);
         } catch(Exception ex) {}
     }
